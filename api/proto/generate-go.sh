@@ -1,0 +1,1 @@
+protoc --go_out=../../gocli/generated/api/proto --go_opt=paths=source_relative --go-grpc_out=../../gocli/generated/api/proto --go-grpc_opt=paths=source_relative echoservice.proto
