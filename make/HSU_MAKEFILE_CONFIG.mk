@@ -41,10 +41,16 @@ BUILD_LIB := yes
 DOMAIN_IMPORT_PREFIX := github.com/core-tools/hsu-$(PROJECT_DOMAIN)
 DOMAIN_REPLACE_TARGET := .
 
-# Custom build directories (relative to language root)
-CLI_BUILD_DIR := cmd/cli
-SRV_BUILD_DIR := cmd/srv
-LIB_BUILD_DIR := pkg
+# Language-specific build directories (relative to language root)
+# Go directories (for Go or multi-language projects)
+GO_CLI_BUILD_DIR := cmd/cli
+GO_SRV_BUILD_DIR := cmd/srv
+GO_LIB_BUILD_DIR := pkg
+
+# Python directories (for Python or multi-language projects)  
+PYTHON_CLI_BUILD_DIR := cli
+PYTHON_SRV_BUILD_DIR := srv
+PYTHON_LIB_BUILD_DIR := lib
 
 # Testing
 TEST_TIMEOUT := 10m
@@ -58,10 +64,11 @@ ENABLE_BENCHMARKS := yes
 # Nuitka Build Configuration (Python binary compilation)
 ENABLE_NUITKA := no
 NUITKA_OUTPUT_NAME := server
-NUITKA_SOURCE_FILE := srv/run_server_wrapper.py
+NUITKA_ENTRY_POINT := srv/run_server.py
 NUITKA_EXCLUDES_FILE := nuitka_excludes.txt
 NUITKA_EXTRA_MODULES := 
 NUITKA_EXTRA_PACKAGES := 
+NUITKA_EXTRA_FOLLOW_IMPORTS := 
 NUITKA_BUILD_MODE := onefile
 
 # Platform

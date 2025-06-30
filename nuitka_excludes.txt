@@ -1,0 +1,4 @@
+# Package names to exclude from Nuitka builds
+# Used by both Makefile and patch_meta.py
+# For versions, see requirements.txt
+
